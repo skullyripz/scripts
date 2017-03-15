@@ -1,0 +1,10 @@
+#!/bin/bash
+[ ! $1 ] && echo "usage: newpy <filename>.py" && exit
+
+if [ -f $1 ] ; then
+	geany $1 &
+else
+	echo "#!/bin/python">$1
+	chmod 755 $1
+	geany $1 &
+fi
