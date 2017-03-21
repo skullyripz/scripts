@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo `$date` >> /var/log/statuslog
+echo `who` >> /var/log/statuslog
+echo `uptime` >> /var/log/statuslog
+
+echo "Information written to log file:\n\n"
+cat /var/log/statuslog
+exit 0
