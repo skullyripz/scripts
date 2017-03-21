@@ -1,0 +1,18 @@
+#!/usr/bin/python
+# sendmail
+# Author: Kenneth Christian
+# Use: A command line tool to send email
+
+import smtplib, getpass
+
+smtpObj = smtplib.SMTP('smtp-mail.outlook.com', 587)
+smtpObj.ehlo()
+smtpObj.starttls()
+userName = raw_input('Enter email: ')
+password = getpass.getpass('Enter password: ')
+smtpObj.login(userName, password)
+recipient = raw_input('Enter recipient email: ')
+subject = raw_input('Enter subject: ')
+message = raw_input('Enter message:\n')
+smtpObj.sendmail(userName, recipient, 'Subject: ' + str(subject) + '\n' + str(message))
+smtpObj.quit()

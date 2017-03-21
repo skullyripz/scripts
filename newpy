@@ -1,10 +1,15 @@
-#!/bin/bash
+#!/usr/bin/bash
 [ ! $1 ] && echo "usage: newpy <filename>.py" && exit
 
 if [ -f $1 ] ; then
 	geany $1 &
 else
 	echo "#!/bin/python">$1
+	echo "# Filename: $1">>$1
+	echo "# Author: Kenneth Christian">>$1
+	echo "# Created on: $(date +%m-%d-%Y)">>$1
+	echo
+	echo
 	chmod 755 $1
 	geany $1 &
 fi
